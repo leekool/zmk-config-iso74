@@ -1,0 +1,56 @@
+/*
+ * iso74 - real keymap (built from the discovery scan)
+ *
+ * layer 0 base : the physical QWERTY/ISO layout
+ * layer 1 fn1  : hold the fn1 key (right of RShift). F1-F12 on the number row,
+ *                bluetooth select/clear + output toggle + reset + bootloader on the
+ *                top row, media on the arrows (up/dn = vol, L/R = prev/next, space = play).
+ * layer 2 fn2  : hold the fn2 key (right of RAlt). Blank canvas - fill it in.
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/ {
+	keymap {
+		compatible = "zmk,keymap";
+
+		base_layer {
+			label = "BASE";
+			bindings = <
+				&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9
+				&kp ESC  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp MINUS  &kp EQUAL  &kp BSPC  &kp HOME
+				&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT  &kp DEL  &kp END
+				&kp LCTRL  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT  &kp RET  &kp RCTRL  &kp UP
+				&kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT  &mo 1  &kp LEFT  &kp RIGHT
+				&kp LGUI  &kp LALT  &kp SPACE  &kp RALT  &mo 2  &kp DOWN
+			>;
+		};
+
+		fn1_layer {
+			label = "FN1";
+			bindings = <
+				&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG  &sys_reset  &trans  &bootloader
+				&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_VOL_UP
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_PREV  &kp C_NEXT
+				&trans  &trans  &kp C_PP  &trans  &trans  &kp C_VOL_DN
+			>;
+		};
+
+		fn2_layer {
+			label = "FN2";
+			bindings = <
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+				&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+				&trans  &trans  &trans  &trans  &trans  &trans
+			>;
+		};
+	};
+};

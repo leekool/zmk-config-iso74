@@ -1,0 +1,8 @@
+file_format: "1"
+id: iso74
+name: iso74
+type: shield
+url:
+requires: [pro_micro]
+features:
+  - keys

@@ -1,0 +1,6 @@
+if SHIELD_ISO74
+
+config ZMK_KEYBOARD_NAME
+    default "iso74"
+
+endif
